@@ -1,9 +1,10 @@
 package com.zlate87.geofencing;
 
-import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -16,7 +17,7 @@ import java.util.Collections;
 import java.util.List;
 
 
-public class TheOnlyActivity extends Activity implements GooglePlayServicesClient.ConnectionCallbacks,
+public class TheOnlyActivity extends ActionBarActivity implements GooglePlayServicesClient.ConnectionCallbacks,
         GooglePlayServicesClient.OnConnectionFailedListener, LocationClient.OnAddGeofencesResultListener {
 
   private static final String LOG_TAG = TheOnlyActivity.class.toString();
@@ -29,10 +30,14 @@ public class TheOnlyActivity extends Activity implements GooglePlayServicesClien
 
   LocationClient locationClient;
 
+  Toolbar toolbar;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.the_only_activity);
+    toolbar = (Toolbar) findViewById(R.id.toolbar);
+    setSupportActionBar(toolbar);
 
     int googlePlayServicesAvailable = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
     Log.d(LOG_TAG, String.format("googlePlayServicesAvailable is [%s]", googlePlayServicesAvailable));
