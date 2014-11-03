@@ -32,7 +32,7 @@ public class TheOnlyActivity extends Activity implements GooglePlayServicesClien
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_my);
+    setContentView(R.layout.the_only_activity);
 
     int googlePlayServicesAvailable = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
     Log.d(LOG_TAG, String.format("googlePlayServicesAvailable is [%s]", googlePlayServicesAvailable));
